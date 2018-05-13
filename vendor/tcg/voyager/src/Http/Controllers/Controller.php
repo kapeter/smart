@@ -113,7 +113,7 @@ abstract class Controller extends BaseController
             }
         }
 
-        if (!isset($data->unit_id)) {
+        if (!isset($data->unit_id) && $slug != 'roles') {
             $data->unit_id = Auth::user()->unit_id;
         }
 
