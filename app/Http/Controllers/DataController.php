@@ -147,10 +147,10 @@ class DataController extends VoyagerController
         // Check if BREAD is Translatable
         $isModelTranslatable = is_bread_translatable($dataTypeContent);
 
-        $view = 'voyager::bread.read';
+        $view = 'bread.read';
 
         if (view()->exists("voyager::$slug.read")) {
-            $view = "voyager::$slug.read";
+            $view = "$slug.read";
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
