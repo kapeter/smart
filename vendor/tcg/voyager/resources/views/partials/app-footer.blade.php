@@ -5,9 +5,5 @@
         @else
             {!! __('voyager::theme.footer_copyright') !!} <a href="https://kapeter.com" target="_blank">kapeter.com</a>
         @endif
-        @php $version = Voyager::getVersion(); @endphp
-        @if (!empty($version))
-            - {{ $version }}
-        @endif
     </div>
 </footer>

@@ -161,7 +161,10 @@ return [
         ],
 
         'widgets' => [
-
+            'App\\Widgets\\TkInfoDimmer',
+            //'App\\Widgets\\TkProjectDimmer',
+            'App\\Widgets\\TkReportDimmer',
+            'App\\Widgets\\TkExpertDimmer',
         ],
 
     ],
