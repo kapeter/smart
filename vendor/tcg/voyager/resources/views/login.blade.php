@@ -103,7 +103,8 @@
         var form = document.forms[0];
         var name = document.getElementById('name');
         var password = document.getElementById('password');
-        var group = document.getElementById('emailGroup');
+        var passwordGroup = document.getElementById('passwordGroup');
+        var emailGroup = document.getElementById('emailGroup');
         btn.addEventListener('click', function(ev){
             if (form.checkValidity()) {
                 btn.querySelector('.signingin').className = 'signingin';
@@ -113,21 +114,21 @@
             }
         });
         name.focus();
-        group.classList.add("focused");
+        emailGroup.classList.add("focused");
 
         // Focus events for email and password fields
         name.addEventListener('focusin', function(e){
-            group.classList.add("focused");
+            emailGroup.classList.add("focused");
         });
         name.addEventListener('focusout', function(e){
-            group.classList.remove("focused");
+            emailGroup.classList.remove("focused");
         });
 
         password.addEventListener('focusin', function(e){
-            group.classList.add("focused");
+            passwordGroup.classList.add("focused");
         });
         password.addEventListener('focusout', function(e){
-            group.classList.remove("focused");
+            passwordGroup.classList.remove("focused");
         });        
     }
 </script>
