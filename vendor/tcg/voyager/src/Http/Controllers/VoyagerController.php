@@ -8,12 +8,17 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Constraint;
 use Intervention\Image\Facades\Image;
 use TCG\Voyager\Facades\Voyager;
+use Illuminate\Support\Facades\DB;
 
 class VoyagerController extends Controller
 {
     public function index()
     {
-        return Voyager::view('voyager::index');
+        $notice = DB::table('tk_notices')->whereNull('deleted_at')->latest()->first();
+
+        return Voyager::view('voyager::index',[
+            'notice' => $notice
+        ]);
     }
 
     public function logout()

@@ -31,7 +31,7 @@ class TkExpertDimmer extends AbstractWidget
             'text'   => __('您有 :count :string 在数据库中。点击下面的按钮查看所有专家。', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => "查看所有专家",
-                'link' => route('voyager.tk-infos.index'),
+                'link' => route('voyager.tk-experts.index'),
             ],
             'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
         ]));

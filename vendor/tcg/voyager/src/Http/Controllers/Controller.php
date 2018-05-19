@@ -113,7 +113,9 @@ abstract class Controller extends BaseController
             }
         }
 
-        if (!isset($data->unit_id) && $slug != 'roles' && $slug != 'tk-units') {
+        $expectSlug = ['roles', 'tk-units', 'tk-notices'];
+
+        if (!isset($data->unit_id) && !in_array($slug, $expectSlug)) {
             $data->unit_id = Auth::user()->unit_id;
         }
 

@@ -90,7 +90,7 @@
                                             @endif
                                         </th>
                                         @endforeach
-                                        <th class="actions">{{ __('voyager::generic.actions') }}</th>
+                                        <th class="actions text-center">{{ __('voyager::generic.actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -122,8 +122,8 @@
                                                         @endforeach
 
                                                         {{-- $data->{$row->field}->implode($options->relationship->label, ', ') --}}
-                                                    @elseif(property_exists($options, 'options'))
-                                                        @foreach($data->{$row->field} as $item)
+                                                    @elseif(property_exists($options, 'options') && is_array(json_decode($data->{$row->field})))
+                                                        @foreach(json_decode($data->{$row->field}) as $item)
                                                          {{ $options->options->{$item} . (!$loop->last ? ', ' : '') }}
                                                         @endforeach
                                                     @endif
@@ -145,7 +145,7 @@
 
                                                 @elseif($row->type == 'select_dropdown' && $data->{$row->field . '_page_slug'})
                                                     <a href="{{ $data->{$row->field . '_page_slug'} }}">{{ $data->{$row->field} }}</a>
-                                                @elseif($row->type == 'date' || $row->type == 'timestamp')
+                                                @elseif(($row->type == 'date' || $row->type == 'timestamp') && isset($data->{$row->field}))
                                                 {{ $options && property_exists($options, 'format') ? \Carbon\Carbon::parse($data->{$row->field})->formatLocalized($options->format) : $data->{$row->field} }}
                                                 @elseif($row->type == 'checkbox')
                                                     @if($options && property_exists($options, 'on') && property_exists($options, 'off'))
@@ -170,7 +170,8 @@
                                                     @if(json_decode($data->{$row->field}))
                                                         @foreach(json_decode($data->{$row->field}) as $file)
                                                             <a href="{{ Storage::disk(config('voyager.storage.disk'))->url($file->download_link) ?: '' }}" target="_blank">
-                                                                {{ $file->original_name ?: '' }}
+                                                              <!--   {{ $file->original_name ?: '' }} -->
+                                                              <i class="icon voyager-cloud-download"></i> 文档下载
                                                             </a>
                                                             <br/>
                                                         @endforeach

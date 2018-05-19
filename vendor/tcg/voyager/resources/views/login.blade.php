@@ -32,6 +32,11 @@
         .login-header{
             margin-bottom: 30px;
         }
+        .login-header h1{
+            color: #22A7F0;
+            letter-spacing: 1px;
+            text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+        }
         @media (max-width: 767px) {
             body.login .login-sidebar {
                 border-top:0px !important;

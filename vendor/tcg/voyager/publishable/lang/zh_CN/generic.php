@@ -22,7 +22,7 @@ return [
     'compass'                => '指南针',
     'created_at'             => '创建于',
     'custom'                 => '自定义',
-    'dashboard'              => '控制面板',
+    'dashboard'              => '系统首页',
     'database'               => '数据库',
     'default'                => '默认',
     'delete'                 => '删除',

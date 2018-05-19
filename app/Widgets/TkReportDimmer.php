@@ -31,7 +31,7 @@ class TkReportDimmer extends AbstractWidget
             'text'   => __('您有 :count :string 在数据库中。点击下面的按钮查看所有报告。', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => "查看所有报告",
-                'link' => route('voyager.tk-infos.index'),
+                'link' => route('voyager.tk-reports.index'),
             ],
             'image' => voyager_asset('images/widget-backgrounds/02.jpg'),
         ]));
