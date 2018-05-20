@@ -127,7 +127,7 @@
                                                          {{ $options->options->{$item} . (!$loop->last ? ', ' : '') }}
                                                         @endforeach
                                                     @endif
-                                                @elseif($row->type == 'radio_btn' && property_exists($options, 'options'))
+                                                @elseif($row->type == 'radio_btn' && property_exists($options, 'options') && isset($data->{$row->field}))
 
                                                     @if($data->{$row->field . '_page_slug'})
                                                         <a href="{{ $data->{$row->field . '_page_slug'} }}">{!! $options->options->{$data->{$row->field}} !!}</a>
